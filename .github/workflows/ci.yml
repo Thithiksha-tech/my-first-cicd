@@ -9,14 +9,16 @@ jobs:
     run-on:ubuntu-latest
   steps:
     - name:Checkout code
-    uses:actions/checkout@v4
+      uses:actions/checkout@v4
     - name: Set up java
-    uses:actions/setup-java@v4
-    with:
-      java-version: '17'
-      distribution: 'temurin'
+      uses:actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
     - name:  Complie Java
       run: javac src/Main.java
+    - name: Run tests
+      run: java -cp src TestMain
     - name: Run application
       run: java -cp src Main    
      
